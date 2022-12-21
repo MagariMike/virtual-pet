@@ -136,5 +136,34 @@ describe('constructor', () => {
                 expect(pet.checkup()).toEqual('I feel great');
             })
     })
+
+        describe('isAlive', () => {
+            it('if pets fitness is 0 or less, should return false',() => {
+                const pet = new Pet('Jenny');
+                pet.fitness = 0;
+                pet.isAlive();
+                expect(pet.isAlive()).toEqual(false);
+            })
+
+            it('if pets hunger is 10 or more, should return false', () => {
+                const pet = new Pet('Jacky');
+                pet.hunger = 11;
+                pet.isAlive();
+                expect(pet.isAlive()).toEqual(false);
+            })
+
+            it('if pets age is 30 or more, should return false', () => {
+                const pet = new Pet('Robbo');
+                pet.age = 39;
+                pet.isAlive();
+                expect(pet.isAlive()).toEqual(false);
+            })
+
+            it('returns true if none of the above are false', () => { 
+                const pet = new Pet('flo');
+                pet.isAlive();
+                expect(pet.isAlive()).toEqual(true);
+            })
+    })
 });
   

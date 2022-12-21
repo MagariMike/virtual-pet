@@ -42,4 +42,16 @@ Pet.prototype.checkup = function () {
         return 'I feel great';
     };
 };
+
+Pet.prototype.isAlive = function () {
+    if(!this.fitness) {
+        return false;
+    } else if (this.hunger >= 10) {
+        return false;
+    } else if (this.age >= 30) {
+        return false;
+    } else {
+        return true;
+    };
+}
 module.exports = Pet;
