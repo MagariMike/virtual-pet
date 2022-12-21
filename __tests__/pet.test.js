@@ -119,6 +119,22 @@ describe('constructor', () => {
                 pet.checkup();
                 expect(pet.checkup()).toEqual('I am hungry');
             })
+             
+            it("if both of the above are true, returns 'I am hungry AND i need a walk'", () => {
+                const pet = new Pet('Lottie');
+                pet.fitness = 3;
+                pet.hunger = 6;
+                pet.checkup();
+                expect(pet.checkup()).toEqual('I am hungry and i need a walk');
+            })
+
+            it("if neither of the above are true, returns 'I feel Great'",() => {
+                const pet = new Pet('Thomas');
+                pet.fitness = 4;
+                pet.hunger = 1;
+                pet.checkup();
+                expect(pet.checkup()).toEqual('I feel great');
+            })
     })
 });
   

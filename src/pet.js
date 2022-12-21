@@ -32,10 +32,14 @@ Pet.prototype.feed = function () {
 };
 
 Pet.prototype.checkup = function () {
-    if(this.fitness <= 3) {
-    return 'I need a walk';
+    if(this.fitness <= 3 && this.hunger >= 5) {
+    return 'I am hungry and i need a walk';
+    } else if (this.hunger >= 5){
+        return 'I am hungry';
+    } else if (this.fitness <= 3){
+        return 'I need a walk';
     } else {
-        return 'I dont need a walk';
-    }
+        return 'I feel great';
+    };
 };
 module.exports = Pet;
