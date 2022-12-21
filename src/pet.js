@@ -29,6 +29,13 @@ Pet.prototype.feed = function () {
     } else {
         this.hunger -= 3;
     }
-}
+};
 
+Pet.prototype.checkup = function () {
+    if(this.fitness <= 3) {
+    return 'I need a walk';
+    } else {
+        return 'I dont need a walk';
+    }
+};
 module.exports = Pet;

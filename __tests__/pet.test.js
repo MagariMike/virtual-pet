@@ -102,5 +102,23 @@ describe('constructor', () => {
             })
             
         });
+    
+    describe('Checkup', () => {
+            
+            it("if fitness is 3 or less, returns 'I need a walk'", () => {
+                const pet = new Pet('troy');
+                pet.fitness = 3;
+                pet.checkup();
+                expect(pet.checkup()).toEqual('I need a walk');
+
+            })
+            
+            it("if hunger is 5 or more, returns 'I am Hungry", () => {
+                const pet = new Pet('Khalid');
+                pet.hunger = 5;
+                pet.checkup();
+                expect(pet.checkup()).toEqual('I am hungry');
+            })
+    })
 });
   
