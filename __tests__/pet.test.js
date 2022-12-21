@@ -83,14 +83,24 @@ describe('constructor', () => {
          })
       
     describe('Keeping Fed', () => {
+
             it('decreases hunger by 3', () => {
+                const pet = new Pet('Tom');
+                pet.hunger = 5;
+                pet.feed();
+                expect(pet.hunger).toEqual(2);
+            })
+
+
+            it('decreases hunger by 3 with a minimum hunger of 0', () => {
                 
                 const pet = new Pet('MB');
-                pet.hunger = 0;
+                pet.hunger = 1;
                 pet.feed();
                 expect(pet.hunger).toEqual(0);
     
             })
+            
         });
 });
   
