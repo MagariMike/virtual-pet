@@ -24,6 +24,11 @@ Pet.prototype.walk = function () {
 
 
 Pet.prototype.feed = function () {
+
+if (!this.isAlive) {
+        throw new Error('Your pet is no longer alive :(');
+    };
+
     if((this.hunger - 3) <= MINIMUM_FITNESS) {
         this.hunger = 0;
     } else {
@@ -55,3 +60,4 @@ Pet.prototype.isAlive = function () {
     };
 }
 module.exports = Pet;
+

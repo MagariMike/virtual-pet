@@ -100,6 +100,13 @@ describe('constructor', () => {
                 expect(pet.hunger).toEqual(0);
     
             })
+
+            xit('throws an error if pet is not alive', () => {
+                const pet = new Pet('Wendy');
+                pet.age = 30;
+                console.log(!this.isAlive);
+                expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
+            });
             
         });
     
