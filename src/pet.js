@@ -7,10 +7,18 @@ function Pet(name) {
     this.age = 0;
     this.hunger = 0;
     this.fitness = MAXIMUM_FITNESS;
+    this.children = [];
 }
+
+Pet.prototype = { 
+    get isAlive() { 
+        return this.age < 30 && this.hunger < 10 && this.fitness > 0;
+    }
+}
+
 Pet.prototype.growUp = function () { 
     
-    if(!this.isAlive()) {
+    if(!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
     this.age += 1;
@@ -19,7 +27,7 @@ Pet.prototype.growUp = function () {
 };
 
 Pet.prototype.walk = function () {
-    if(!this.isAlive()) {
+    if(!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
     }
    if ((this.fitness + 4) <= 10) {
@@ -32,7 +40,7 @@ Pet.prototype.walk = function () {
 
 Pet.prototype.feed = function () {
     
-    if (!this.isAlive()) {
+    if (!this.isAlive) {
         throw new Error('Your pet is no longer alive :(');
       }
 
@@ -55,16 +63,18 @@ Pet.prototype.checkup = function () {
     };
 };
 
-Pet.prototype.isAlive = function () {
-    if(!this.fitness) {
-        return false;
-    } else if (this.hunger >= 10) {
-        return false;
-    } else if (this.age >= 30) {
-        return false;
-    } else {
-        return true;
-    };
+Pet.prototype.adoptChild = function (petChild) {
+    if (!petChild) { 
+        return 
+    }
+     this.children.push(petChild);
+    
 }
+
+    
+
+
+
+
 module.exports = Pet;
 

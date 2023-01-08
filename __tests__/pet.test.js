@@ -124,7 +124,7 @@ describe('constructor', () => {
                     const pet = new Pet('Fido');
               
                     pet.age = 30;
-                    console.log(pet.isAlive());
+                    
                     expect(() => pet.feed()).toThrow('Your pet is no longer alive :(');
                   });
                 
@@ -170,29 +170,38 @@ describe('constructor', () => {
             it('if pets fitness is 0 or less, should return false',() => {
                 const pet = new Pet('Jenny');
                 pet.fitness = 0;
-                pet.isAlive();
-                expect(pet.isAlive()).toEqual(false);
+                
+                expect(pet.isAlive).toEqual(false);
             })
 
             it('if pets hunger is 10 or more, should return false', () => {
                 const pet = new Pet('Jacky');
                 pet.hunger = 11;
-                pet.isAlive();
-                expect(pet.isAlive()).toEqual(false);
+                
+                expect(pet.isAlive).toEqual(false);
             })
 
             it('if pets age is 30 or more, should return false', () => {
                 const pet = new Pet('Robbo');
                 pet.age = 39;
-                pet.isAlive();
-                expect(pet.isAlive()).toEqual(false);
+                
+                expect(pet.isAlive).toEqual(false);
             })
 
             it('returns true if none of the above are false', () => { 
                 const pet = new Pet('flo');
-                pet.isAlive();
-                expect(pet.isAlive()).toEqual(true);
+                
+                expect(pet.isAlive).toEqual(true);
             })
     })
+
+describe('having a child', () => {
+    it('add a child', () => { 
+        const petParent = new Pet('Tom');
+        const petChild = new Pet('child');
+        petParent.adoptChild(petChild); 
+        expect(petParent.children).toEqual([petChild]);
+    })
+})
 });
   
